@@ -15,15 +15,15 @@ public class MyView extends View {
 
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
-//        Paint paint = new Paint();
-//        paint.setColor(Color.GREEN);
-//        paint.setStrokeWidth(5);
-        //canvas.drawLine(0, 0, getWidth(), getHeight(), paint);
-//        for (int y = 0; y < getHeight(); y += 30) {
-//            canvas.drawLine(0, y, getWidth(), y, paint);
-//        }
-
         Paint paint = new Paint();
+        paint.setColor(Color.GREEN);
+        paint.setStrokeWidth(5);
+        canvas.drawLine(0, 0, getWidth(), getHeight(), paint);
+        for (int y = 0; y < getHeight(); y += 30) {
+            canvas.drawLine(0, y, getWidth(), y, paint);
+        }
+
+        // paint = new Paint();
         paint.setColor(Color.YELLOW);
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(300, 300, 200, paint);
