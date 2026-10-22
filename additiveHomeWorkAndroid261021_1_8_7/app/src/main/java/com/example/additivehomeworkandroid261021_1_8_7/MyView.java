@@ -42,6 +42,14 @@ public class MyView extends View {
 
             x[i] += vx[i] * (nowTime - lastTime);
             y[i] += vy[i] * (nowTime - lastTime);
+
+            if (x[i] > getWidth() || x[i] < 0) {
+                vx[i] = -vx[i];
+            }
+
+            if (y[i] > getHeight() || y[i] < 0) {
+                vy[i] = -vy[i];
+            }
         }
 
         lastTime = nowTime;
