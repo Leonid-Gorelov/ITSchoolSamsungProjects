@@ -24,12 +24,10 @@ public class MyView extends View {
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         if (!isStarted) {
-            for (int i = 0; i < N; i++) {
-                x[i] = (float) (Math.random() * getWidth());
-                y[i] = (float) (Math.random() * getHeight());
-                vx[i] = (float) (Math.random() * 0.1f);
-                vy[i] = (float) (Math.random() * 0.1f);
-            }
+            fillRandom(x, getWidth());
+            fillRandom(y, getHeight());
+            fillRandom(vx, 0.1f);
+            fillRandom(vy, 0.1f);
 
             isStarted = true;
             lastTime = System.currentTimeMillis();
@@ -37,23 +35,46 @@ public class MyView extends View {
 
         long nowTime = System.currentTimeMillis();
 
-        for (int i = 0; i < N; i++) {
-            canvas.drawCircle(x[i], y[i], 20, paint);
+        drawBalls(canvas);
 
-            x[i] += vx[i] * (nowTime - lastTime);
-            y[i] += vy[i] * (nowTime - lastTime);
+        add(x, vx, (nowTime - lastTime));
+        add(y, vy, (nowTime - lastTime));
 
-            if (x[i] > getWidth() || x[i] < 0) {
-                vx[i] = -vx[i];
-            }
-
-            if (y[i] > getHeight() || y[i] < 0) {
-                vy[i] = -vy[i];
-            }
-        }
+        tryToChangeSpeed(vx, x, getWidth());
+        tryToChangeSpeed(vy, y, getHeight());
 
         lastTime = nowTime;
 
         invalidate();
+    }
+
+    float rand(float multiplayer){
+        return (float) (Math.random() * multiplayer);
+    }
+
+    void fillRandom(float[] array, float multiplayer){
+        for (int i = 0; i < array.length; i++) {
+            array[i] = rand(multiplayer);
+        }
+    }
+
+    void add(float[] array, float[] values, float multiplayer){
+        for (int i = 0; i < array.length; i++) {
+            array[i] += values[i] * multiplayer;
+        }
+    }
+
+    void tryToChangeSpeed(float[] array, float[] arrayToCheck, float valueToCheck){
+        for (int i = 0; i < array.length; i++) {
+            if (arrayToCheck[i] > valueToCheck || arrayToCheck[i] < 0){
+                array[i] = -array[i];
+            }
+        }
+    }
+
+    void drawBalls(Canvas canvas){
+        for (int i = 0; i < N; i++) {
+            canvas.drawCircle(x[i], y[i], 20, paint);
+        }
     }
 }
