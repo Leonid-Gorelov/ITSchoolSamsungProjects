@@ -1,0 +1,32 @@
+Родительский класс:
+class Person:
+String name;
+int health;
+boolean isMasculin;
+int graduation;
+String graduationType;
+String role;
+
+void doWork() {}
+void eat() {...}
+void sleep() {...}
+void die() {...}
+
+Дети:
+class Programmer:
+void writeCode() {...}
+void doReview() {...}
+void doWork(){ writeCode; } //or doReview()
+
+---
+
+class Soldier:
+String weaponType;
+
+void shoot() {...}
+void doWork() {shoot();}
+void die() {...} //Different type of end of life may be
+
+class Cleaner:
+void clean() {...}
+void doWork() {clean();}
