@@ -7,6 +7,10 @@ public class Unit {
         this.name = name;
     }
 
+    public Unit(Unit unit){
+        this(unit.hp, unit.name);
+    }
+
     public void showInfo() {
         System.out.println("Unit name - " + name);
         System.out.println("Hp - " + hp);

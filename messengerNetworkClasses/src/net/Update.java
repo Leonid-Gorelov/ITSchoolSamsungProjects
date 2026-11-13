@@ -1,13 +1,23 @@
 package net;
 
-public class Update {
-    private NetworkObject[] networkObjects;
+import java.util.ArrayList;
 
-    public Update(NetworkObject[] networkObjects) {
+public class Update {
+    private ArrayList<NetworkObject> networkObjects;
+
+    public Update(ArrayList<NetworkObject> networkObjects) {
         this.networkObjects = networkObjects;
     }
 
-    public NetworkObject[] getNetworkObjects() {
+    public ArrayList<NetworkObject> getNetworkObjects() {
         return networkObjects;
+    }
+
+    public void addNetworkObject(NetworkObject networkObject) {
+        networkObjects.add(networkObject);
+    }
+
+    public void clearNetworkObjects() {
+        networkObjects.clear();
     }
 }
