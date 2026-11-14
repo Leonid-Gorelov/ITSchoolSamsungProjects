@@ -1,8 +1,8 @@
 package net;
 
 public class NetworkObject {
-    private int version;
-    private String type;
+    private final int version;
+    private final String type;
 
     public NetworkObject(int version, String type) {
         this.version = version;

@@ -1,11 +1,11 @@
 package net;
 
 public class SetSentMessageId extends NetworkObject {
-    private int tempMessageId;
-    private long messageId;
+    private final int tempMessageId;
+    private final long messageId;
 
-    public SetSentMessageId(int tempMessageId, long messageId, int version, String type) {
-        super(version, type);
+    public SetSentMessageId(int tempMessageId, long messageId, int version) {
+        super(version, "SetSentMessageId");
 
         this.tempMessageId = tempMessageId;
         this.messageId = messageId;

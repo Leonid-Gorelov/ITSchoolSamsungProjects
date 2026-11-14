@@ -1,10 +1,10 @@
 package net;
 
 public class MarkAsRead extends NetworkObject {
-    private long messageId;
+    private final long messageId;
 
-    public MarkAsRead(long messageId, int version, String type) {
-        super(version, type);
+    public MarkAsRead(long messageId, int version) {
+        super(version, "MarkAsRead");
 
         this.messageId = messageId;
     }

@@ -1,11 +1,11 @@
 package net;
 
 public class User extends NetworkObject {
-    private long userId;
-    private String sessionToken;
+    private final long userId;
+    private final String sessionToken;
 
-    public User(long userId, String sessionToken, int version, String type) {
-        super(version, type);
+    public User(long userId, String sessionToken, int version) {
+        super(version, "User");
 
         this.userId = userId;
         this.sessionToken = sessionToken;

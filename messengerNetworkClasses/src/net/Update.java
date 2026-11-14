@@ -3,7 +3,7 @@ package net;
 import java.util.ArrayList;
 
 public class Update {
-    private ArrayList<NetworkObject> networkObjects;
+    private final ArrayList<NetworkObject> networkObjects;
 
     public Update(ArrayList<NetworkObject> networkObjects) {
         this.networkObjects = networkObjects;

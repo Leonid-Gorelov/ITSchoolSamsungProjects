@@ -1,11 +1,11 @@
 package net;
 
 public class SetChatList extends NetworkObject {
-    private long[] peerIds;
-    private String[] displayNames;
+    private final long[] peerIds;
+    private final String[] displayNames;
 
-    public SetChatList(long[] peerIds, String[] displayNames, int version, String type) {
-        super(version, type);
+    public SetChatList(long[] peerIds, String[] displayNames, int version) {
+        super(version, "SetChatList");
 
         this.peerIds = peerIds;
         this.displayNames = displayNames;

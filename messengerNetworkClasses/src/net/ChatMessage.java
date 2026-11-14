@@ -1,15 +1,15 @@
 package net;
 
 public class ChatMessage extends NetworkObject {
-    private String text;
-    private long senderId;
-    private long targetPeerId;
-    private long messageId;
-    private Attachment[] attachments;
-    private long date;
+    private final String text;
+    private final long senderId;
+    private final long targetPeerId;
+    private final long messageId;
+    private final Attachment[] attachments;
+    private final long date;
 
-    public ChatMessage(String text, long senderId, long targetPeerId, long messageId, Attachment[] attachments, long date, int version, String type) {
-        super(version, type);
+    public ChatMessage(String text, long senderId, long targetPeerId, long messageId, Attachment[] attachments, long date, int version) {
+        super(version, "ChatMessage");
 
         this.text = text;
         this.senderId = senderId;
